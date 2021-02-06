@@ -1,4 +1,4 @@
-package com.hypech.case32audiotrack_sine_pcm_static;
+package com.seeingvoice.case36audiotrack_puretone;
 
 import android.content.Context;
 

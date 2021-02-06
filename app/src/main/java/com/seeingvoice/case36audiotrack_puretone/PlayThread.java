@@ -1,8 +1,9 @@
-package com.hypech.case32audiotrack_sine_pcm_static;
+package com.seeingvoice.case36audiotrack_puretone;
 
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
+import static com.seeingvoice.case36audiotrack_puretone.GlobalConfig.SAMPLE_RATE;
 
 /**
  * Created by LeoReny@hypech.com on 2021/2/2.
@@ -10,8 +11,7 @@ import android.media.AudioTrack;
 
 public class PlayThread extends Thread {
     //人耳能够感觉到的最高频率为20kaudioFrequency，因此要满足人耳的听觉要求，则需要至少每秒进行40k次采样，
-    // 这个40kHz就是采样率。我们常见的CD音质，采样率为44.1kaudioFrequency。
-    public static final int SAMPLE_RATE = 44100;
+    // 这个40kHz就是采样率。我们常见的CD音质，采样率为44.1k audioFrequency。
     public static final int AMPLITUDE = 65535; //2^16 -1;
     public static final double PI2 = 2 * 3.14159265;
     double increment;
@@ -20,7 +20,7 @@ public class PlayThread extends Thread {
     AudioTrack mAudioTrack;
     public static boolean ISPLAYSOUND;
 
-    int length,  numOfSamplesPerWave,  audioFrequency;
+    int numOfSamplesPerWave,  audioFrequency;
 //    byte[] wave;
 
     /**
@@ -43,21 +43,9 @@ public class PlayThread extends Thread {
                     AudioFormat.ENCODING_PCM_16BIT, SAMPLE_RATE*2 , AudioTrack.MODE_STREAM);
             ISPLAYSOUND = true;
 //            wave = SinWave.sin(wave, numOfSamplesPerWave, SAMPLE_RATE);
-            wave = sine(wave, increment);
+            wave = PureTone.sine(wave, increment);
         }
     }
-
-    public static short[] sine(short[] wave, double increment) {
-        for (int i = 0; i < SAMPLE_RATE; i++) {
-
-            wave[i] = (short) (AMPLITUDE * Math.sin(increment * i));
-
-//            wave[i] = (short) (HEIGHT * (1 - Math.sin(TWOPI * ((i % waveLen) * 1.00 / waveLen))));
-//            wave[i] = (short) (HEIGHT * (1 - Math.sin(TWOPI * ((i % waveLen) * 1.00 / waveLen))));
-        }
-        return wave;
-    }
-
 
     @Override
     public void run() {
@@ -66,7 +54,7 @@ public class PlayThread extends Thread {
             mAudioTrack.play();
         //一直播放
         while (ISPLAYSOUND) {
-            mAudioTrack.write(wave, 0, length);
+            mAudioTrack.write(wave, 0, SAMPLE_RATE);
         }
 
     }
