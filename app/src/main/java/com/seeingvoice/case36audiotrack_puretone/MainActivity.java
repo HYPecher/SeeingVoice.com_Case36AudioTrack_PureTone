@@ -61,7 +61,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             mPlayThread.stopPlay();
             mPlayThread = null;
         }
-        mPlayThread = new PlayThread(1000);
+        mPlayThread = new PlayThread(100);
         mPlayThread.setChannel(left,right);
         mPlayThread.start();
     }
