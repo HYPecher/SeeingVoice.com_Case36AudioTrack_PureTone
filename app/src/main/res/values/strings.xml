@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Case32AudioTrackSineWave</string>
+    <string name="app_name">Pure Tone</string>
+    <string name="stop">停止播放</string>
+    <string name="rightchanel">右声道播放</string>
+    <string name="leftchanel">左声道播放</string>
+    <string name="play">双声道播放</string>
+    <string name="QRCode">看见声音服务号</string>
 </resources>

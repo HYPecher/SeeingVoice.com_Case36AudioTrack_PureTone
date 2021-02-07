@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import static com.seeingvoice.case36audiotrack_puretone.GlobalConfig.SAMPLE_RATE;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private PlayThread mPlayThread;
@@ -17,10 +16,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnPlay = (Button) findViewById(R.id.btn_play);
-        btnLeft = (Button) findViewById(R.id.btn_left);
-        btnRight = (Button) findViewById(R.id.btn_right);
-        btnStop = (Button) findViewById(R.id.btn_stop);
+        btnPlay =  findViewById(R.id.btn_play);
+        btnLeft =  findViewById(R.id.btn_left);
+        btnRight = findViewById(R.id.btn_right);
+        btnStop =  findViewById(R.id.btn_stop);
 
         btnPlay.setOnClickListener(this);
         btnLeft.setOnClickListener(this);

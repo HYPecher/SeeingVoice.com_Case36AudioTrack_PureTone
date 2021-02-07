@@ -10,7 +10,7 @@
         android:id="@+id/btn_play"
         android:layout_width="131dp"
         android:layout_height="75dp"
-        android:text="双声道播放"
+        android:text="@string/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btn_left"
         app:layout_constraintHorizontal_bias="0.312"
@@ -21,7 +21,7 @@
         android:id="@+id/btn_left"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="左声道播放"
+        android:text="@string/leftchanel"
         app:layout_constraintBaseline_toBaselineOf="@+id/btn_right"
         app:layout_constraintEnd_toStartOf="@+id/btn_right"
         app:layout_constraintStart_toStartOf="parent" />
@@ -30,7 +30,7 @@
         android:id="@+id/btn_right"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="右声道播放"
+        android:text="@string/rightchanel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_left"
         app:layout_constraintTop_toBottomOf="@+id/btn_play" />
@@ -39,7 +39,7 @@
         android:id="@+id/btn_stop"
         android:layout_width="147dp"
         android:layout_height="97dp"
-        android:text="停止播放"
+        android:text="@string/stop"
         app:layout_constraintEnd_toEndOf="@+id/btn_left"
         app:layout_constraintStart_toEndOf="@+id/btn_left"
         app:layout_constraintTop_toBottomOf="@+id/btn_left" />
@@ -48,11 +48,22 @@
         android:id="@+id/iViewSV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/sv_2barcode1"
+        android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/btn_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sv_2barcode1"
         tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/QRCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iViewSV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
